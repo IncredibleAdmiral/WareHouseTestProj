@@ -1,0 +1,35 @@
+﻿<div>
+
+    @*<button class="btn  @((Cell.Cargo!= null)? "btn-danger" : "" )" @onclick="(()=>DeleteCargo.InvokeAsync(Cell))">@Cell.coordinateName</button>*@
+
+
+
+    @if (Cell.Cargo != null)
+    {
+
+        <button class="btn  btn-danger" style="border: medium ;"  @onclick="(() => CleanCargo.InvokeAsync(Cell))">@Cell.coordinateName</button>
+
+    }
+    else
+    {
+        <button class="btn " style="border: medium ;">@Cell.coordinateName</button>
+    }
+</div>
+
+@code {
+
+
+
+    [Parameter] public Cell Cell { get; set; }
+
+    [Parameter] public EventCallback<Cell> CleanCargo { get; set; }
+
+   
+
+
+
+
+
+
+
+}

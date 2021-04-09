@@ -1,0 +1,68 @@
+﻿
+@if (section != null)
+{
+    @foreach (var gridRow in section.Grid)
+    {
+
+    <div class="row">
+         @foreach (Cell cell in gridRow)
+         {
+                   
+             <CellView Cell="cell" CleanCargo="CleanTheCell"></CellView>
+        
+        }
+    </div>
+
+    }
+
+    <PopUpGrid Title="Подтверждение удаления"   @ref="popUpGrid" OnConfirm="ConformClean" OnCancel="OnCanel" >
+        <Content>
+            <div>
+                <h3>Вы действительно хотите очистить ячейку от груза </h3>
+            </div>
+            <div>
+                <h3> "@beingCleanCell.Cargo.Description" </h3>
+            </div>
+        </Content>
+    </PopUpGrid>
+}
+
+
+
+@code {
+
+
+    [Parameter] public WareHouseSection section { get; set; }
+
+    Cell beingCleanCell;
+
+    PopUpGrid popUpGrid;
+
+
+    void CleanTheCell(Cell cell)
+    {
+        beingCleanCell = cell;
+        popUpGrid.Show();
+    }
+
+    void ConformClean()
+    {
+        section.DeleteCargoOnCell(beingCleanCell.сoordinates);
+        beingCleanCell = null;
+        popUpGrid.Hide();
+    }
+
+    void OnCanel()
+    {
+        beingCleanCell = null;
+        popUpGrid.Hide();
+    }
+
+
+    public string GetPopUpContent()
+    {
+        return "";
+    }
+
+
+}
