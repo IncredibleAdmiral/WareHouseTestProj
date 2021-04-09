@@ -96,48 +96,15 @@ using WareHouseBlazorTest.Mocks;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Gridtest")]
-    public partial class GridTest : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/WareHouse")]
+    public partial class WareHouseTestPage : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 22 "C:\Users\Gsu\source\repos\WareHouseBlazorTest\WareHouseBlazorTest\Pages\GridTest.razor"
-       
-
-    private WareHouseSection curSection;
-
-    private string currentCargoDescription;
-
-    private void Refresh()
-    {
-        InvokeAsync(() => this.StateHasChanged());
-    }
-
-
-
-
-
-
-
-    protected override void OnInitialized()
-    {
-        curSection = singleton.Section;
-        currentCargoDescription = string.Empty;
-
-        singleton.ChangeSectionsValuesEvent += Refresh;
-    }
-
-
-
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SectionMockSingleton singleton { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WareHouseMockSingleton watehouseSingleton { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -45,7 +45,7 @@ namespace WareHouseBlazorTest
             services.AddSingleton<WeatherForecastService>();
            
 
-            services.AddSingleton<SectionMockSingleton>();
+            services.AddSingleton<WareHouseMockSingleton>();
 
 
         }

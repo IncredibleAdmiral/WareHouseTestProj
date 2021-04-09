@@ -1,0 +1,42 @@
+﻿@if (curSection != null)
+{
+    <div>
+        <GridViewComponnent section="curSection"></GridViewComponnent>
+    </div>
+}
+
+
+<div>
+    <h1>
+        @currentCargoDescription
+    </h1>
+</div>
+
+
+@code {
+
+   [Parameter] public WareHouseSection section { get; set; }
+
+    private WareHouseSection curSection;
+
+    private string currentCargoDescription;
+
+    private void Refresh()
+    {
+        InvokeAsync(() => this.StateHasChanged());
+    }
+
+
+
+
+
+
+
+    protected override void OnInitialized()
+    {
+        //curSection = singleton.Section;
+        //currentCargoDescription = string.Empty;
+
+        //singleton.ChangeSectionsValuesEvent += Refresh;
+    }
+}

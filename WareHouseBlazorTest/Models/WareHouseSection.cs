@@ -2,25 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WareHouseBlazorTest.Interfaces;
 
 namespace WareHouseBlazorTest.Models
 {
-    public class WareHouseSection
+    public class WareHouseSection : ISection
     {
+      
+        public int Id { get; set;}
         
+        public string Name { get; set; }
 
-        public List<List<Cell>> Grid { get; set; }
+        public List<List<Cell>> Grid { get;  set; }
        
 
-        public WareHouseSection(int rows, int colunms)
+        public WareHouseSection(int numberOfRows, int numberOfColunms)
         {
             Grid = new List<List<Cell>>();
 
-            for (int rowsCounter = 0; rowsCounter < rows; rowsCounter++)
+            for (int rowsCounter = 0; rowsCounter < numberOfRows; rowsCounter++)
             {
                 var curentRow = new List<Cell>();
 
-                for (int columnsCounter = 0; columnsCounter < colunms; columnsCounter++)
+                for (int columnsCounter = 0; columnsCounter < numberOfColunms; columnsCounter++)
                 {
 
 

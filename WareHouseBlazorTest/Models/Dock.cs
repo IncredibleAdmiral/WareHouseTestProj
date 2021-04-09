@@ -7,14 +7,17 @@ namespace WareHouseBlazorTest.Models
 {
     public class Dock
     {
-        int Id { get; set; }
-        
-        WareHouse WareHouse { get; set; }
+        public readonly int id;
+
+        public readonly WareHouse warehouse; 
 
         DockCondition Condition { get; set; }
 
-
-
+        public Dock(int id, WareHouse warehouse)
+        {
+            this.id = id;
+            this.warehouse = warehouse;
+        }
     
     }
 }
